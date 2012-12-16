@@ -29,12 +29,18 @@ mv ./jars/FileExplorer.jar "./dist/FileExplorer.$1.jar"
 echo "Create Source tar.gz"
 tar -czf "./dist/FileExplorer-src.$1.tar.gz" ./src/ ./lib/ ./resources/ ./resources_macosx/ ./windows_launcher/ ./build_dist.sh ./build.xml 
 
+## Original Code for SourceForge Subversion
+#echo "You should really Tag if your going to Release do:"
+#echo "svn copy https://fileexplorer.svn.sourceforge.net/svnroot/fileexplorer/trunk/ \
+# https://fileexplorer.svn.sourceforge.net/svnroot/fileexplorer/tags/Release/$1 \
+# -m 'Tagging the $1 release' "
+#
+#scp ./dist/*$1* morgan_prior,fileexplorer@frs.sourceforge.net:/home/frs/project/f/fi/fileexplorer/fileexplorer
 
-echo "You should really Tag if your going to Release do:"
-echo "svn copy https://fileexplorer.svn.sourceforge.net/svnroot/fileexplorer/trunk/ \
- https://fileexplorer.svn.sourceforge.net/svnroot/fileexplorer/tags/Release/$1 \
- -m 'Tagging the $1 release' "
+# Tag in git
+git tag -a $rev -m "Tagging gem release $rev"
 
-scp ./dist/*$1* morgan_prior,fileexplorer@frs.sourceforge.net:/home/frs/project/f/fi/fileexplorer/fileexplorer
+# Push tag to origin (github)
+git push origin $rev
 
 
