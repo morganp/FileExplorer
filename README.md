@@ -23,11 +23,9 @@ It allows you to cut and paste files on the Mac! The Cut/Copy & Paste is merged 
 Compile
 --
 
-To build the jar file :
+To run program from a comandline (with debug info to console):
 
     ant run-jar
-
-Double clicking the jar file should start the application.
 
 To create release I have been running, for release version 0.1.1:
 
